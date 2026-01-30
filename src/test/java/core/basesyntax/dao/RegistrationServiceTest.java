@@ -55,7 +55,8 @@ public class RegistrationServiceTest {
         user.setPassword("ValidPassword");
         user.setAge(-5);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
@@ -64,7 +65,8 @@ public class RegistrationServiceTest {
         user.setLogin("12345");
         user.setPassword("validPass");
         user.setAge(20);
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
@@ -80,19 +82,22 @@ public class RegistrationServiceTest {
         duplicateUser.setPassword("newPass");
         duplicateUser.setAge(25);
 
-        assertThrows(RegistrationException.class, () -> registrationService.register(duplicateUser));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(duplicateUser));
     }
 
     @Test
     void register_nullLogin_notOk() {
         User user = new User();
         user.setLogin(null);
-        assertThrows(RegistrationException.class, () -> registrationService.register(user));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(user));
     }
 
     @Test
     void register_nullUser_notOk() {
-        assertThrows(RegistrationException.class, () -> registrationService.register(null));
+        assertThrows(RegistrationException.class,
+                () -> registrationService.register(null));
     }
 
 }
